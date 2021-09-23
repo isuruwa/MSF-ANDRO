@@ -49,4 +49,4 @@
 
 ![msfandro](https://user-images.githubusercontent.com/72663288/134495867-99026a39-2a5c-4683-952f-1e92e23e9554.jpg)
 
-
+# Credits - <a href="https://github.com/gushmazuko/metasploit_in_termux">gushmazuko</a>
