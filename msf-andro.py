@@ -1191,7 +1191,11 @@ def msfinstall():
   start()
   msfi = input(colors.green + " [ + ] Are you sure to Install Metasploit ? <y/n> ")
   if msfi == "y" or msfi == "Y" or msfi == "yes" or msfi == "YES" or msfi == "Yes":
-    os.system("source <(curl -fsSL https://kutt.it/msf)")
+    os.system('cd $HOME')
+    os.system('apt install wget')
+    os.system('wget https://raw.githubusercontent.com/gushmazuko/metasploit_in_termux/master/metasploit.sh')
+    os.system('chmod +x metasploit.sh')
+    os.system('./metasploit.sh')
   else:
     menu()
 
