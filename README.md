@@ -50,3 +50,12 @@
 ![msfandro](https://user-images.githubusercontent.com/72663288/134495867-99026a39-2a5c-4683-952f-1e92e23e9554.jpg)
 
 # Credits - <a href="https://github.com/gushmazuko/metasploit_in_termux">gushmazuko</a>
+
+---
+### ❤️Supporters❤️ 
+[![Stars @isuruwa/MSF-ANDRO](https://reporoster.com/stars/dark/isuruwa/MSF-ANDRO)](https://github.com/isuruwa/MSF-ANDRO/stargazers)
+
+[![Forks @isuruwa/MSF-ANDRO](https://reporoster.com/forks/dark/isuruwa/MSF-ANDRO)](https://github.com/isuruwa/MSF-ANDRO/network/members)
+---
+
+
