@@ -42,8 +42,6 @@ def pubip():
   slowprint(colors.whit + "[IP] Your Public Ip is : "+ colors.purple + ip)
   print("\n")
 
-
-
 def ngrokins():
   start()
   if os.path.isfile('/data/data/com.termux/files/home/ngrok'):
@@ -91,8 +89,6 @@ def ngrokins():
       time.sleep(2)
       menu()
 
-
-
 def bind():
   start()
   slowprint2("\033[37m[\033[31m1\033[37m]  Install APKMOD")
@@ -125,8 +121,6 @@ def bind():
     menu()
   else:
     menu()
-  
-  
 
 def signapk():
   start()
@@ -159,8 +153,6 @@ def persistence():
             print("\033[37m[\033[31m+\033[37m] Script Saved as inject.sh ")
             time.sleep(5)
         menu()
-
-
 
 def menu():
   start()
@@ -1186,7 +1178,6 @@ def exit():
   os.system("apt clean")
   quit()
 
-
 def dbstart():
   slowprint2(colors.green + " [ ✔ ] SERVICE MSFDB STARTING")
   time.sleep(1)
@@ -1195,8 +1186,6 @@ def dbstart():
   os.system('pg_ctl -D $PREFIX/var/lib/postgresql start > /dev/null 2>&1')
   slowprint2(colors.green + " [ ✔ ] SERVICE POSTGRSQL STARTED")
   time.sleep(2)
-
-
 
 def msfinstall():
   start()
@@ -1228,7 +1217,6 @@ def apkmodins():
   else:
     menu()
 
-
 if os.system("which apkmod >/dev/null 2>&1") == 0:
   slowprint2(colors.green + " [ ✔ ] Apkmod Found")
   time.sleep(1)
@@ -1237,7 +1225,6 @@ else:
   slowprint2(colors.green + " [ x ] Apkmod Not Found")
   time.sleep(2)
   apkmodins()
-
 
 def program():
     try:
