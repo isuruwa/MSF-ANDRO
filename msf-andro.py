@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 #coding: utf-8
 #AUTHOR : DEVIL MASTER
@@ -42,20 +41,19 @@ def pubip():
   ip = get('https://api.ipify.org').text
   slowprint(colors.whit + "[IP] Your Public Ip is : "+ colors.purple + ip)
   print("\n")
-
-
+    
 
 def ngrokins():
   start()
-  if os.path.isfile('ngrok'):
-    slowprint2(colors.green + "[+] NGROK FOUND")
+  if os.path.isfile('/data/data/com.termux/files/home/ngrok'):
+    slowprint2(colors.green + "[+] NGROK ALREADY FOUND")
     time.sleep(2)
     menu()
   else:
     try:
-      slowprint2(colors.green + "[*] Architecture Type : ")
+      print(str(colors.green + "[*] Architecture Type ⬇️ " ))
       os.system('dpkg --print-architecture')
-      ngr = input("[+] Enter Above Displayed Architecture Type : ")
+      ngr = input("\033[37m[+] Enter Above Displayed Architecture Type ( Default = arm ) : ")
       if ngr == "aarch64":
         os.system('wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm64.zip')
         os.system('unzip ngrok-stable-linux-arm64.zip')
@@ -77,17 +75,20 @@ def ngrokins():
         os.system('wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip')
         os.system('unzip ngrok-stable-linux-arm.zip')
         os.system('chmod 777 ngrok')
-        menu()      
+        menu() 
+      elif ngr == "":
+        os.system('wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip')
+        os.system('unzip ngrok-stable-linux-arm.zip')
+        os.system('chmod 777 ngrok')
+        os.system('chmod 777 ngrok')
       else:
-        slowprint2(colors.red + "Architecture Not Found ")
+        slowprint2(colors.red + "[!] Architecture Not Found ")
         time.sleep(2)
         menu()
     except:
-      slopwprint2(colors.red + "System Error")
+      slopwprint2(colors.red + "[!] System Error")
       time.sleep(2)
       menu()
-
-
 
 def bind():
   start()
@@ -120,15 +121,13 @@ def bind():
   elif uchoice == "3":
     menu()
   else:
-    menu()
-  
-  
+    menu() 
 
 def signapk():
   start()
-  if os.system("which apkpmod >/dev/null 2>&1") == 0:
+  if os.system("which apkmod >/dev/null 2>&1") == 0:
     unsignapk = str(input("\033[37m[+] Path To Unsigned APK : "))
-    signapkapk = str(input("\033[37m[+] Path To Signed APK : "))
+    signapk = str(input("\033[37m[+] Path To Signed APK : "))
     try:
       os.system("apkmod -s {0} -o {1}".format(unsignapk,signapk))
     except:
@@ -156,18 +155,16 @@ def persistence():
             time.sleep(5)
         menu()
 
-
-
 def menu():
   start()
-  slowprint2("\n\033[37m [\033[35m1\033[37m] Install/Update")
+  slowprint2("\n\033[37m [\033[35m1\033[37m] Install Metasploit")
   slowprint2("\033[37m [\033[35m2\033[37m] Create Payload")
   slowprint2("\033[37m [\033[35m3\033[37m] Start Listner")
   slowprint2("\033[37m [\033[35m4\033[37m] Payload Bind")
   slowprint2("\033[37m [\033[35m5\033[37m] Download Ngrok")
   slowprint2("\033[37m [\033[35m6\033[37m] Sign Apk")
   slowprint2("\033[37m [\033[35m7\033[37m] Android persistence\n")
-  uchoice = str(input("\033[37m [\033[31m+\033[37m] \033[1;32mMSF > "))
+  uchoice = str(input("\033[37m [\033[31m+\033[37m] \033[35mMSF > "))
   if uchoice == "1":
     msfinstall()
   elif uchoice == "2":
@@ -1175,6 +1172,21 @@ def crlinux():
   else:
     menu()
 
+def exit():
+  slowprint2(colors.red + " [!] Stoping Script [!]")
+  time.sleep(2)
+  os.system("pg_ctl -D $PREFIX/var/lib/postgresql stop")
+  os.system("apt clean")
+  quit()
+
+def dbstart():
+  slowprint2(colors.green + " [ ✔ ] SERVICE MSFDB STARTING")
+  time.sleep(1)
+  slowprint2(colors.green + " [ ✔ ] SERVICE POSTGRSQL STARTING")
+  os.system('initdb $PREFIX/var/lib/postgresql > /dev/null 2>&1 ')
+  os.system('pg_ctl -D $PREFIX/var/lib/postgresql start > /dev/null 2>&1')
+  slowprint2(colors.green + " [ ✔ ] SERVICE POSTGRSQL STARTED")
+  time.sleep(2)
 
 def msfinstall():
   start()
@@ -1208,14 +1220,25 @@ def apkmodins():
 
 
 if os.system("which apkmod >/dev/null 2>&1") == 0:
-  slowprint2(colors.green + " [ ✔ ] APKMOD Found")
+  slowprint2(colors.green + " [ ✔ ] Apkmod Found")
   time.sleep(1)
   pass
 else:
-  slowprint2(colors.green + " [ x ] APKMOD Not Found")
+  slowprint2(colors.green + " [ x ] Apkmod Not Found")
   time.sleep(2)
   apkmodins()
 
 
-
-menu()
+def program():
+    try:
+      dbstart()
+      menu()
+    except KeyboardInterrupt:
+      con = input(colors.red + "\n\n [c] Continue [q] Quit : ")
+      if con == "c" or con == "C" or con == "continue" or con == "Continue":
+        menu()
+      else:
+        exit()
+        
+if '__main__' == __name__:
+	program()
