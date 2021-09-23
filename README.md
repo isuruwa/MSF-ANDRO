@@ -4,7 +4,7 @@
 
 ![MSF-ANDRO](https://user-images.githubusercontent.com/72663288/134493156-59ac9a5b-3f25-4dd7-9d8f-2462a450f1ce.png)
 
-# MSF-EXPLOIT is a Metasploit Multi Purpose Exploiting Toolkit For Termux .
+# MSF-ANDRO is a Metasploit Multi Purpose Exploiting Toolkit For Termux .
 
 # Only a Basic Script , Still in Development .
 
