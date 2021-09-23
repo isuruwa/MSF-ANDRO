@@ -41,7 +41,8 @@ def pubip():
   ip = get('https://api.ipify.org').text
   slowprint(colors.whit + "[IP] Your Public Ip is : "+ colors.purple + ip)
   print("\n")
-    
+
+
 
 def ngrokins():
   start()
@@ -90,6 +91,8 @@ def ngrokins():
       time.sleep(2)
       menu()
 
+
+
 def bind():
   start()
   slowprint2("\033[37m[\033[31m1\033[37m]  Install APKMOD")
@@ -121,7 +124,9 @@ def bind():
   elif uchoice == "3":
     menu()
   else:
-    menu() 
+    menu()
+  
+  
 
 def signapk():
   start()
@@ -155,9 +160,11 @@ def persistence():
             time.sleep(5)
         menu()
 
+
+
 def menu():
   start()
-  slowprint2("\n\033[37m [\033[35m1\033[37m] Install Metasploit")
+  slowprint2("\n\033[37m [\033[35m1\033[37m] Install/Update")
   slowprint2("\033[37m [\033[35m2\033[37m] Create Payload")
   slowprint2("\033[37m [\033[35m3\033[37m] Start Listner")
   slowprint2("\033[37m [\033[35m4\033[37m] Payload Bind")
@@ -1179,6 +1186,7 @@ def exit():
   os.system("apt clean")
   quit()
 
+
 def dbstart():
   slowprint2(colors.green + " [ ✔ ] SERVICE MSFDB STARTING")
   time.sleep(1)
@@ -1187,6 +1195,8 @@ def dbstart():
   os.system('pg_ctl -D $PREFIX/var/lib/postgresql start > /dev/null 2>&1')
   slowprint2(colors.green + " [ ✔ ] SERVICE POSTGRSQL STARTED")
   time.sleep(2)
+
+
 
 def msfinstall():
   start()
@@ -1239,6 +1249,6 @@ def program():
         menu()
       else:
         exit()
-        
+	
 if '__main__' == __name__:
 	program()
