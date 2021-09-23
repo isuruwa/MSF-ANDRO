@@ -1193,7 +1193,6 @@ def msfinstall():
   if msfi == "y" or msfi == "Y" or msfi == "yes" or msfi == "YES" or msfi == "Yes":
     os.system('cd')
     os.system('source <(curl -fsSL https://kutt.it/msf)')
-    menu()
   else:
     menu()
 
