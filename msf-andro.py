@@ -156,7 +156,7 @@ def persistence():
 
 def menu():
   start()
-  slowprint2("\n\033[37m [\033[35m1\033[37m] Install/Update")
+  slowprint2("\n\033[37m [\033[35m1\033[37m] Install Metasploit")
   slowprint2("\033[37m [\033[35m2\033[37m] Create Payload")
   slowprint2("\033[37m [\033[35m3\033[37m] Start Listner")
   slowprint2("\033[37m [\033[35m4\033[37m] Payload Bind")
